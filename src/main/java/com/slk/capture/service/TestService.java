@@ -23,21 +23,21 @@ public class TestService {
 
 	public void test() {
 		Contact contact = new Contact();
-		contact.setEmailId("");
-		contact.setExtn(1111);
-		contact.setMobileNo(999898989L);
+		contact.setEmailId("asdad");
+		contact.setExtn(112611);
+		contact.setMobileNo(9998928989L);
 		contactService.createContact(contact);
 
 		Skill skill = new Skill();
-		skill.setSkillName("Java");
-		skill.setSkillType("Programming Language");
-		skill.setSkillDescription("");
+		skill.setSkillName("Java1");
+		skill.setSkillType("Programming Language1");
+		skill.setSkillDescription("ac");
 		skillService.addSkill(skill);
 
 		Skill skill1 = new Skill();
-		skill1.setSkillName("Dot Net");
-		skill1.setSkillType("Programming Language");
-		skill1.setSkillDescription("");
+		skill1.setSkillName("Dot Net1d");
+		skill1.setSkillType("Programming Languageas");
+		skill1.setSkillDescription("asasd");
 		skillService.addSkill(skill1);
 	}
 }

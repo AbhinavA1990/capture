@@ -6,4 +6,6 @@ import com.slk.capture.model.Skill;
 
 public interface SkillRepository extends GraphRepository<Skill> {
 
+	// List<Skill> getSkillsBySkillName(String name);
+
 }

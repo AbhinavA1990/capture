@@ -1,0 +1,17 @@
+type Skill {
+    graphId: ID!
+    skillId: String
+    skillName: String!
+    skillDescription : String
+    skillType: String
+}	
+
+# The Root Query for the application
+type Query {
+    skills(name: String): [Skill]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    writeSkill(skillName: String, skillDescription: String, skillType: String) : Skill!
+}
