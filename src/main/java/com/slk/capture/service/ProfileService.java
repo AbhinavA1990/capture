@@ -6,4 +6,6 @@ public interface ProfileService {
 
 	public void createProfile(Profile profile);
 
+	public Profile findByProfileName(String profileName);
+
 }

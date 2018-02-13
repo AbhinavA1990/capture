@@ -6,4 +6,6 @@ import com.slk.capture.model.Profile;
 
 public interface ProfileRepository extends GraphRepository<Profile> {
 
+	Profile findByProfileName(String name);
+
 }
