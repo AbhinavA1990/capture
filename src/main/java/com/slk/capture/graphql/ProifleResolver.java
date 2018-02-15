@@ -9,8 +9,7 @@ import com.slk.capture.repo.ProfileRepository;
 
 @Component
 public class ProifleResolver implements GraphQLResolver<Profile> {
-	
-	
+
 	@Autowired
 	private ProfileRepository profileRepository;
 
@@ -18,9 +17,8 @@ public class ProifleResolver implements GraphQLResolver<Profile> {
 		return profile.getGraphId();
 	}
 
-	public String getSkillId(Profile profile) {
-		return profile.getProfileId();
-	}
+	// public String getSkillId(Profile profile) {
+	// return profile.getProfileId();
+	// }
 
-	
 }

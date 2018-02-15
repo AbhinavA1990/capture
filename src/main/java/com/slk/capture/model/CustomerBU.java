@@ -56,4 +56,12 @@ public class CustomerBU {
 	}
 
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
 }

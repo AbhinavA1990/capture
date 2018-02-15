@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.slk.capture.model.Contact;
-import com.slk.capture.model.Skill;
 import com.slk.capture.repo.ContactRepository;
-import com.slk.capture.repo.SkillRepository;
 
 @Component
 public class ContactResolver implements GraphQLResolver<Contact> {
@@ -19,8 +17,8 @@ public class ContactResolver implements GraphQLResolver<Contact> {
 		return contact.getGraphId();
 	}
 
-//	public String getSkillId(Contact contact) {
-//		return contact.getContactId();
-//	}
+	// public String getSkillId(Contact contact) {
+	// return contact.getContactId();
+	// }
 
 }

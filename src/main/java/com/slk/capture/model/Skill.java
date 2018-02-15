@@ -52,6 +52,10 @@ public class Skill {
 		return skillType;
 	}
 
+	public void setSkillType(String skillType) {
+		this.skillType = skillType;
+	}
+
 	public Long getGraphId() {
 		return graphId;
 	}
@@ -66,18 +70,6 @@ public class Skill {
 
 	public void setSkillId(String skillId) {
 		this.skillId = skillId;
-	}
-
-	public List<Profile> getProfile() {
-		return profile;
-	}
-
-	public void setProfile(List<Profile> profile) {
-		this.profile = profile;
-	}
-
-	public void setSkillType(String skillType) {
-		this.skillType = skillType;
 	}
 
 }
