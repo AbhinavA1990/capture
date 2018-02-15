@@ -1,6 +1,7 @@
 package com.slk.capture.model;
 
 import java.util.List;
+import java.util.Set;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -12,9 +13,6 @@ public class Profile {
 
 	@GraphId
 	private Long graphId;
-
-	@Property(name = "profileId")
-	private String profileId;
 
 	@Property(name = "profileName")
 	private String profileName;
@@ -36,6 +34,33 @@ public class Profile {
 
 	@Property(name = "profilePic")
 	private Byte[] profilePic;
+
+	@Relationship(type = "PROFILEBLOGS", direction = Relationship.OUTGOING)
+	private Set<Blog> blogs;
+
+	public CustomerBU getCbu() {
+		return cbu;
+	}
+
+	public void setCbu(CustomerBU cbu) {
+		this.cbu = cbu;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+	public Set<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(Set<Blog> blogs) {
+		this.blogs = blogs;
+	}
 
 	public Profile() {
 		// TODO Auto-generated constructor stub
