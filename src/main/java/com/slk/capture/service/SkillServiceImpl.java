@@ -1,5 +1,7 @@
 package com.slk.capture.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public void addSkill(Skill skill) {
 		skillRepository.save(skill);
+	}
+
+	@Override
+	public List<Skill> getSkills() {
+		return (List<Skill>) skillRepository.findAll();
 	}
 }

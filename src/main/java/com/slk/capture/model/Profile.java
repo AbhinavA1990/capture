@@ -31,6 +31,22 @@ public class Profile {
 	@Property(name = "profileDesignation")
 	private String profileDesignation;
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
+	public String getProfileId() {
+		return profileId;
+	}
+
+	public void setProfileId(String profileId) {
+		this.profileId = profileId;
+	}
+
 	@Relationship(type = "SKILLS")
 	private List<Skill> skills;
 

@@ -14,11 +14,11 @@ public class SkillResolver implements GraphQLResolver<Skill> {
 	private SkillRepository skillRepository;
 
 	public Long getGraphId(Skill skill) {
-		return 0L;
+		return skill.getGraphId();
 	}
 
 	public String getSkillId(Skill skill) {
-		return "";
+		return skill.getSkillId();
 	}
 
 }

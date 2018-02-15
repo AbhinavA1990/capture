@@ -10,27 +10,27 @@ public class Contact {
 	@GraphId
 	private Long graphId;
 
-	@Property(name = "contactId")
-	private String contactId;
+//	@Property(name = "contactId")
+//	private String contactId;
 
 	@Property(name = "mobileNo")
-	private long mobileNo;
+	private Long mobileNo;
 
 	@Property(name = "emailId")
 	private String emailId;
 
-	@Property(name = "extn")
-	private int extn;
+	@Property(name = "extension")
+	private Integer extension;
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getMobileNo() {
+	public Long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(long mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 
@@ -42,12 +42,30 @@ public class Contact {
 		this.emailId = emailId;
 	}
 
-	public int getExtn() {
-		return extn;
+	
+
+	public Integer getExtension() {
+		return extension;
 	}
 
-	public void setExtn(int extn) {
-		this.extn = extn;
+	public void setExtension(Integer extension) {
+		this.extension = extension;
 	}
+
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
+//	public String getContactId() {
+//		return contactId;
+//	}
+//
+//	public void setContactId(String contactId) {
+//		this.contactId = contactId;
+//	}
 
 }

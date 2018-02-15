@@ -24,7 +24,7 @@ public class TestService {
 	public void test() {
 		Contact contact = new Contact();
 		contact.setEmailId("asdad");
-		contact.setExtn(112611);
+		contact.setExtension(112611);
 		contact.setMobileNo(9998928989L);
 		contactService.createContact(contact);
 

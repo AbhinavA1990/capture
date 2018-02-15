@@ -25,6 +25,14 @@ public class User {
 	@Property(name = "password")
 	private String password;
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
 	@Relationship(type = "ROLES")
 	private HashSet<Role> roles;
 

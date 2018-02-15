@@ -1,3 +1,23 @@
+schema {
+	query : Query
+}
+
+# The Root Query for the application
+type Query {
+	allSkill: [Skill]
+    skill(graphId: Long): Skill
+    allProfile: [Profile]
+    profile(graphId:Long): Profile
+    allContact: [Contact]
+    contact(graphId:Long): Contact
+    allUser: [User]
+    user(graphId:Long): User
+    allCustomerBU: [CustomerBU]
+    customerBU(graphId:Long): CustomerBU
+    allRole: [Role]
+    role(graphId:Long):Role
+}
+
 type Skill {
     graphId: ID!
     skillId: String
@@ -6,12 +26,40 @@ type Skill {
     skillType: String
 }	
 
-# The Root Query for the application
-type Query {
-    skills(name: String): [Skill]!
+type Profile{
+   graphId: ID!
+   profileName: String
+   workstation: String
+   profileDesignation: String  
+}
+type Contact {
+  graphId: ID!
+  mobileNo: Long
+  extension:Int
+  emailId: String
+}	
+type User{
+graphId: ID!
+userName: String
+email: String
+password: String
+}
+type CustomerBU{
+graphId: ID!
+cbuName: String
+cbuType: String
+}
+type Role{
+graphId: ID!
+roleName: String
 }
 
 # The Root Mutation for the application
 type Mutation {
     writeSkill(skillName: String, skillDescription: String, skillType: String) : Skill!
+    writeProfile(profileName: String, workstation:String,profileDesignation:String) : Profile!
+    writeContact(mobileNo:Long,emailId: String,extension:Int): Contact!
+    writeUser(userName:String,email:String,password:String): User!
+    writeCustomerBU(cbuName: String,cbuType: String): CustomerBU!
+    writeRole(roleName: String): Role!
 }

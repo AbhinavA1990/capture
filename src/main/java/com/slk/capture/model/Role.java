@@ -13,6 +13,14 @@ public class Role {
 	@Property(name = "roleName")
 	private String roleName;
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
 	public String getRoleName() {
 		return roleName;
 	}
