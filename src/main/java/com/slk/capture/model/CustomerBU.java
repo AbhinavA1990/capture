@@ -16,14 +16,6 @@ public class CustomerBU {
 	@Property(name = "cbuId")
 	private String cbuId;
 
-	public Long getGraphId() {
-		return graphId;
-	}
-
-	public void setGraphId(Long graphId) {
-		this.graphId = graphId;
-	}
-
 	@Property(name = "mobileNo")
 	private String cbuName;
 
@@ -54,6 +46,14 @@ public class CustomerBU {
 
 	public void setCbuType(String cbuType) {
 		this.cbuType = cbuType;
+	}
+
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
 	}
 
 }
