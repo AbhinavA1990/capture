@@ -1,4 +1,4 @@
-package com.slk.capture.graphql;
+package com.slk.capture.graphql.resolver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

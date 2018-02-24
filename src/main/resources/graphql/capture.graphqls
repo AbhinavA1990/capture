@@ -16,6 +16,21 @@ type Query {
     customerBU(graphId:Long): CustomerBU
     allRole: [Role]
     role(graphId:Long):Role
+    allAdvertisement: [Advertisement]
+    advertisement(graphId:Long):Advertisement
+    allCarPool:[CarPool]
+    carPool(graphId:Long):CarPool
+    allBlogT:[BlogT]
+    blogT(graphId:Long):BlogT
+    allMultiMedia:[MultiMedia]
+    multiMedia(graphId:Long):MultiMedia
+    
+}
+
+type BlogT {
+	graphId: ID!
+	blogTitle:String
+	blogText:String
 }
 
 type Skill {
@@ -31,6 +46,7 @@ type Profile{
    profileName: String
    workstation: String
    profileDesignation: String  
+   profileContact:Contact
 }
 type Contact {
   graphId: ID!
@@ -53,6 +69,35 @@ type Role{
 graphId: ID!
 roleName: String
 }
+type Advertisement{
+graphId: ID!
+productName: String
+productDescription: String
+productPrice:Float
+}
+type CarPool{
+graphId: ID!
+destinationTo: String
+startFrom:String
+vehicleNumber:String
+seatsAvailable:Int
+interestedProfiles:[Profile]
+}
+
+type MultiMedia{
+graphId: ID!
+contentType:String
+fileName:String
+}
+type Comments{
+graphId: ID!
+comment:String
+profile:Profile
+}
+
+
+
+
 
 # The Root Mutation for the application
 type Mutation {
@@ -62,4 +107,9 @@ type Mutation {
     writeUser(userName:String,email:String,password:String): User!
     writeCustomerBU(cbuName: String,cbuType: String): CustomerBU!
     writeRole(roleName: String): Role!
+    writeAdvertisement(productName:String,productDescription:String,productPrice:Float):Advertisement! 
+    writeCarPool(destinationTo:String,startFrom:String,vehicleNumber:String,seatsAvailable:Int):CarPool!
+    writeBlogT(blogTitle:String,blogText:String):BlogT!
+    writeMultiMedia(contentType:String,fileName:String):MultiMedia!
+   
 }

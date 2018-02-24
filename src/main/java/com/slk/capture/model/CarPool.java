@@ -1,6 +1,7 @@
 package com.slk.capture.model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import org.neo4j.ogm.annotation.GraphId;
@@ -30,7 +31,15 @@ public class CarPool extends PostType {
 	private Integer seatsAvailable;
 
 	@Relationship(type = "INTERESTEDPROFILES", direction = Relationship.OUTGOING)
-	private Set<Profile> interestedProfiles;
+	private List<Profile> interestedProfiles;
+
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
 
 	public Date getDateTimeOfTravel() {
 		return dateTimeOfTravel;
@@ -72,11 +81,11 @@ public class CarPool extends PostType {
 		this.seatsAvailable = seatsAvailable;
 	}
 
-	public Set<Profile> getInterestedProfiles() {
+	public List<Profile> getInterestedProfiles() {
 		return interestedProfiles;
 	}
 
-	public void setInterestedProfiles(Set<Profile> interestedProfiles) {
+	public void setInterestedProfiles(List<Profile> interestedProfiles) {
 		this.interestedProfiles = interestedProfiles;
 	}
 

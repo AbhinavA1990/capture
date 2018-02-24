@@ -17,7 +17,7 @@ public class BlogTag {
 	private String blogTagName;
 
 	@Relationship(type = "TAGBLOGS", direction = Relationship.OUTGOING)
-	private List<Blog> blogList;
+	private List<BlogT> blogList;
 
 	public String getBlogTagName() {
 		return blogTagName;
@@ -27,11 +27,11 @@ public class BlogTag {
 		this.blogTagName = blogTagName;
 	}
 
-	public List<Blog> getBlogList() {
+	public List<BlogT> getBlogList() {
 		return blogList;
 	}
 
-	public void setBlogList(List<Blog> blogList) {
+	public void setBlogList(List<BlogT> blogList) {
 		this.blogList = blogList;
 	}
 

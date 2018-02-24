@@ -18,5 +18,30 @@ public class MultiMedia {
 
 	@Property(name = "content")
 	private Byte[] content;
+	
+	public Long getGraphId() {
+		return graphId;
+	}
 
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	
 }

@@ -22,6 +22,14 @@ public class Advertisement extends PostType {
 	@Property(name = "productPrice")
 	private Double productPrice;
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
+
 	@Relationship(type = "INTERESTEDPROFILES", direction = Relationship.OUTGOING)
 	private List<Profile> interestedProfiles;
 

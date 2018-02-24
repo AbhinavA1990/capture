@@ -36,7 +36,7 @@ public class Profile {
 	private Byte[] profilePic;
 
 	@Relationship(type = "PROFILEBLOGS", direction = Relationship.OUTGOING)
-	private Set<Blog> blogs;
+	private Set<BlogT> blogs;
 
 	public CustomerBU getCbu() {
 		return cbu;
@@ -54,11 +54,11 @@ public class Profile {
 		this.skills = skills;
 	}
 
-	public Set<Blog> getBlogs() {
+	public Set<BlogT> getBlogs() {
 		return blogs;
 	}
 
-	public void setBlogs(Set<Blog> blogs) {
+	public void setBlogs(Set<BlogT> blogs) {
 		this.blogs = blogs;
 	}
 

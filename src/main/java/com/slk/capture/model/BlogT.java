@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity
-public class Blog extends PostType {
+public class BlogT extends PostType {
 
 	@GraphId
 	private Long graphId;
@@ -68,4 +68,11 @@ public class Blog extends PostType {
 		this.blogTags = blogTags;
 	}
 
+	public Long getGraphId() {
+		return graphId;
+	}
+
+	public void setGraphId(Long graphId) {
+		this.graphId = graphId;
+	}
 }
