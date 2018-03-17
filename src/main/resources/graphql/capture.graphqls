@@ -95,10 +95,6 @@ comment:String
 profile:Profile
 }
 
-
-
-
-
 # The Root Mutation for the application
 type Mutation {
     writeSkill(skillName: String, skillDescription: String, skillType: String) : Skill!

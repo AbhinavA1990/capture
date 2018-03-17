@@ -15,12 +15,22 @@ public class SkillServiceImpl implements SkillService {
 	private SkillRepository skillRepository;
 
 	@Override
-	public void addSkill(Skill skill) {
-		skillRepository.save(skill);
+	public Skill addSkill(String skillName, String skillDescription, String skillType) {
+		Skill skill = new Skill();
+		skill.setSkillName(skillName);
+		skill.setSkillDescription(skillDescription);
+		skill.setSkillType(skillType);
+		return skillRepository.save(skill);
+	}
+
+
+	@Override
+	public Skill getSkill(Long graphId) {
+		return skillRepository.findOne(graphId);	
 	}
 
 	@Override
-	public List<Skill> getSkills() {
+	public List<Skill> getAllSkill() {
 		return (List<Skill>) skillRepository.findAll();
 	}
 }

@@ -11,6 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.graphaware.module.uuid.UuidConfiguration;
+import com.graphaware.module.uuid.UuidModule;
+import com.graphaware.runtime.GraphAwareRuntime;
+import com.graphaware.runtime.GraphAwareRuntimeFactory;
+
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableNeo4jRepositories(basePackages = "com.slk.capture.repo")
@@ -31,6 +36,14 @@ public class CaptureApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext app = SpringApplication.run(CaptureApplication.class, args);
+		
+		/*GraphDatabaseService database = new GraphDatabaseFactory().newEmbeddedDatabaseBuilder(pathToDb)
+			    .loadPropertiesFromFile(this.getClass().getClassLoader().getResource("neo4j.properties").getPath())
+			    .newGraphDatabase();
+		GraphAwareRuntime runtime = GraphAwareRuntimeFactory.createRuntime(database);  //where database is an instance of GraphDatabaseService
+		 UuidModule module = new UuidModule("UUIDM", UuidConfiguration.defaultConfiguration());
+		 runtime.registerModule(module);
+		 runtime.start();*/
 		// TestService testService = app.getBean(TestService.class);
 		// testService.test();
 	}

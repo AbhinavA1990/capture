@@ -7,7 +7,6 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.slk.capture.model.Advertisement;
 import com.slk.capture.model.BlogT;
 import com.slk.capture.model.CarPool;
-import com.slk.capture.model.Comments;
 import com.slk.capture.model.Contact;
 import com.slk.capture.model.CustomerBU;
 import com.slk.capture.model.MultiMedia;
@@ -15,104 +14,81 @@ import com.slk.capture.model.Profile;
 import com.slk.capture.model.Role;
 import com.slk.capture.model.Skill;
 import com.slk.capture.model.User;
-import com.slk.capture.repo.AdvertisementRepository;
-import com.slk.capture.repo.BlogRepsository;
-import com.slk.capture.repo.CarPoolRepository;
 import com.slk.capture.repo.CommentsRepository;
-import com.slk.capture.repo.ContactRepository;
-import com.slk.capture.repo.CustomerBURepository;
-import com.slk.capture.repo.MultiMediaRepository;
-import com.slk.capture.repo.ProfileRepository;
-import com.slk.capture.repo.RoleRepository;
-import com.slk.capture.repo.SkillRepository;
-import com.slk.capture.repo.UserRepository;
+import com.slk.capture.service.AdvertisementService;
+import com.slk.capture.service.BlogTService;
+import com.slk.capture.service.CarPoolService;
+import com.slk.capture.service.ContactService;
+import com.slk.capture.service.CustomerBUService;
+import com.slk.capture.service.MultiMediaService;
+import com.slk.capture.service.ProfileService;
+import com.slk.capture.service.RoleService;
+import com.slk.capture.service.SkillService;
+import com.slk.capture.service.UserService;
 
 @Component
 public class Mutation implements GraphQLMutationResolver {
-
-	@Autowired
-	private SkillRepository skillRepo;
-	@Autowired
-	private ProfileRepository profileRepo;
 	
 	@Autowired
-	private ContactRepository contactRepo;
+	private SkillService skillService;
 	
 	@Autowired
-	private UserRepository userRepo;
+	private ProfileService profileService;
 	
 	@Autowired
-	private CustomerBURepository custRepo;
+	private ContactService contactService;
 	
 	@Autowired
-	private RoleRepository roleRepo;
+	private UserService userService;
 	
 	@Autowired
-	private AdvertisementRepository AdvertisementRepo;
+	private CustomerBUService customerBUService;
+	
+	@Autowired
+	private RoleService roleService;
+	
+	@Autowired
+	private AdvertisementService advertisementService;
 	
 	@Autowired
 	private CommentsRepository commentsRepo;
 	
 	@Autowired
-	private CarPoolRepository carpoolRepo;
+	private CarPoolService carPoolService;
 	
 	@Autowired
-	private BlogRepsository blogRepo;
+	private BlogTService blogTService;
 	
 	@Autowired
-	private MultiMediaRepository multimediaRepo;
+	private MultiMediaService multiMediaService;
 
 	public Skill writeSkill(String skillName, String skillDescription, String skillType) {
-		Skill skill = new Skill();
-		skill.setSkillName(skillName);
-		skill.setSkillDescription(skillDescription);
-		skill.setSkillType(skillType);
-		return skillRepo.save(skill);
+		return skillService.addSkill(skillName, skillDescription, skillType);
 	}
 
     public Profile writeProfile(String profileName,String workstation, String profileDesignation) {
-	     Profile profile = new Profile();
-	     profile.setProfileName(profileName);
-	     profile.setWorkstation(workstation);
-	     profile.setProfileDesignation(profileDesignation);
-	     return profileRepo.save(profile);	
+	    	return profileService.addProfile(profileName, workstation, profileDesignation);
     }
 
     public Contact writeContact(Long mobileNo,String emailId,Integer extension) {
-    	   Contact contact = new Contact();
-       contact.setEmailId(emailId);
-       contact.setMobileNo(mobileNo);
-       contact.setExtension(extension);
-       return contactRepo.save(contact);	
+    	  return contactService.addContact(mobileNo, emailId, extension);
     }
     
     public User writeUser(String userName,String email,String password) {
-    	 User user = new User();
-    	 user.setUserName(userName);
-    	 user.setEmail(email);
-    	 user.setPassword(password);
-    	 return userRepo.save(user);
+    	return userService.addUser(userName, email, password);
     }
     
     public CustomerBU writeCustomerBU(String cbuName,String cbuType) {
-    	CustomerBU customerbu = new CustomerBU();
-    	customerbu.setCbuName(cbuName);
-    	customerbu.setCbuType(cbuType);
-    	return custRepo.save(customerbu);
+    return customerBUService.addCustomerBU(cbuName, cbuType);
     }
     
    public Role writeRole(String roleName) {
-	   Role role = new Role();
-	   role.setRoleName(roleName);
-	   return roleRepo.save(role);   
+	   return roleService.addRole(roleName);
    }
    
    public Advertisement writeAdvertisement(String productName,String productDescription, Double productPrice) {
-	   Advertisement advertisement = new Advertisement();
-	   advertisement.setProductName(productName);
-	   advertisement.setProductDescription(productDescription);
-	   advertisement.setProductPrice(productPrice);
-	   return AdvertisementRepo.save(advertisement);	   
+	   return advertisementService.addAdvertisement(productName, productDescription, productPrice);   
+	   
    }
 //   public Comments writeComments(String comment,Profile profile,Long parentcommentid) {
 //	   Comments comments = new Comments();
@@ -125,24 +101,14 @@ public class Mutation implements GraphQLMutationResolver {
 //	   return comments;
 //   }
    public CarPool writeCarPool(String destinationTo,String startFrom,String vehicleNumber,Integer seatsAvailable) {
-	   CarPool carpool = new CarPool();
-	   carpool.setStartFrom(startFrom);
-	   carpool.setDestinationTo(destinationTo);
-	   carpool.setVehicleNumber(vehicleNumber);
-	   carpool.setSeatsAvailable(seatsAvailable);
-	   return carpoolRepo.save(carpool);
+	  return carPoolService.addCarPool(destinationTo, startFrom, vehicleNumber, seatsAvailable);
    }
   public BlogT writeBlogT(String blogTitle,String blogText) {
-	  BlogT blog = new BlogT();
-	  blog.setBlogTitle(blogTitle);
-	  blog.setBlogText(blogText);
-	  return blogRepo.save(blog);
+	  return blogTService.addBlog(blogTitle, blogText);
+	
   }  
   public MultiMedia writeMultiMedia(String contentType,String fileName) {
-	  MultiMedia multimedia = new MultiMedia();
-	  multimedia.setFileName(fileName);
-      multimedia.setContentType(contentType);
-      return multimediaRepo.save(multimedia);
+	 return multiMediaService.addMutliMedia(contentType, fileName);
   }
 
 

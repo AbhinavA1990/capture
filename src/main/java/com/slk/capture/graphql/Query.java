@@ -28,111 +28,131 @@ import com.slk.capture.repo.ProfileRepository;
 import com.slk.capture.repo.RoleRepository;
 import com.slk.capture.repo.SkillRepository;
 import com.slk.capture.repo.UserRepository;
+import com.slk.capture.service.AdvertisementService;
+import com.slk.capture.service.AdvertisementServiceImpl;
+import com.slk.capture.service.BlogTService;
+import com.slk.capture.service.BlogTServiceImpl;
+import com.slk.capture.service.CarPoolService;
+import com.slk.capture.service.CarPoolServiceImpl;
+import com.slk.capture.service.ContactService;
+import com.slk.capture.service.ContactServiceImpl;
+import com.slk.capture.service.CustomerBUService;
+import com.slk.capture.service.CustomerBUServiceImpl;
+import com.slk.capture.service.MultiMediaService;
+import com.slk.capture.service.MultiMediaServiceImpl;
+import com.slk.capture.service.ProfileService;
+import com.slk.capture.service.ProfileServiceImpl;
+import com.slk.capture.service.RoleService;
+import com.slk.capture.service.RoleServiceImpl;
+import com.slk.capture.service.SkillService;
+import com.slk.capture.service.SkillServiceImpl;
+import com.slk.capture.service.UserService;
+import com.slk.capture.service.UserServiceImpl;
 
 @Component
 public class Query implements GraphQLQueryResolver {
 
 	@Autowired
-	private SkillRepository skillRepository;
+	private SkillService skillService;
 	
 	@Autowired
-	private ProfileRepository profileRepository;
+	private ProfileService profileService;
 	
 	@Autowired
-	private ContactRepository contactRepository;
+	private ContactService contactService;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@Autowired
-	private CustomerBURepository CustomerBURepository;
+	private CustomerBUService customerBUService;
 	
 	@Autowired
-	private RoleRepository RoleRepository;
+	private RoleService roleService;
 	
 	@Autowired
-	private AdvertisementRepository AdvertisementRepository;
+	private AdvertisementService advertisementService;
 	
 	@Autowired
-	private CarPoolRepository carpoolRepository;
+	private CommentsRepository commentsRepo;
 	
 	@Autowired
-	private BlogRepsository blogRepository;
+	private CarPoolService carPoolService;
+	
+	@Autowired
+	private BlogTService blogTService;
+	
+	@Autowired
+	private MultiMediaService multiMediaService;
 
-	@Autowired
-	private MultiMediaRepository multimediaRepository;
-	
-	@Autowired
-	private CommentsRepository commentsRepository;
 
 	public Skill getSkill(Long graphId) {
-		return skillRepository.findOne(graphId);
+		return skillService.getSkill(graphId);
 	}
 
 	public List<Skill> getAllSkill() {
-		return (List<Skill>) skillRepository.findAll();
+		return skillService.getAllSkill();
 	}
 
    public Profile getProfile(Long graphID) {
-	   return profileRepository.findOne(graphID);
+	   return profileService.getProfile(graphID);
    }
    public List<Profile> getAllProfile(){
-	   return (List<Profile>) profileRepository.findAll();
+	   return profileService.getAllProfile();
 	   
    }
    public Contact getContact(Long graphID) {
-	   return contactRepository.findOne(graphID);
+	   return contactService.getContact(graphID);
    }
    public List<Contact> getAllContact(){
-	   return (List<Contact>) contactRepository.findAll();
-	   
+	  return contactService.getAllContact();
    }
    public User getUser(Long graphID) {
-	   return userRepository.findOne(graphID);  
+	   return userService.getUser(graphID);
    }
 
    public List<User> getAllUser(){
-	   return (List<User>) userRepository.findAll();
+	return userService.getAllUser();   
    }
 
    public CustomerBU getCustomerBU(Long graphId) {
-	   return CustomerBURepository.findOne(graphId);
+	   return customerBUService.getCustomerBU(graphId);
    }
    public List<CustomerBU> getAllCustomerBU(){
-	   return (List<CustomerBU>) CustomerBURepository.findAll();
+	   return customerBUService.getAllCustomerBU();
 	   
    }
    public Role getRole(Long graphId) {
-	   return RoleRepository.findOne(graphId);
+	   return roleService.getRole(graphId);
    }
    public List<Role> getAllRole(){
-	   return (List<Role>) RoleRepository.findAll();
+	  return roleService.getAllRole();
 	   
    }
    public Advertisement getAdvertisement(Long graphId) {
-	   return AdvertisementRepository.findOne(graphId);
+	   return advertisementService.getAdvertisement(graphId);
    }
    public List<Advertisement> getAllAdvertisement(){
-	   return (List<Advertisement>) AdvertisementRepository.findAll();
+	  return advertisementService.getAllAdvertisement();
    }
    public CarPool getCarPool(Long graphId) {
-	   return carpoolRepository.findOne(graphId);
+	   return carPoolService.getCarPool(graphId);
    }
    public List<CarPool> getAllCarPool(){
-	   return (List<CarPool>) carpoolRepository.findAll();
+	  return carPoolService.getAllCarPool();
    }
    public BlogT getBlogT(Long graphId) {
-	   return blogRepository.findOne(graphId);   
+	  return blogTService.getBlogT(graphId);
    }
    
    public List<BlogT> getAllBlogT(){
-	   return (List<BlogT>) blogRepository.findAll(); 
+	  return blogTService.getAllBlogT();
    }
    public MultiMedia getMultiMedia(Long graphId) {
-	   return multimediaRepository.findOne(graphId);
+	  return multiMediaService.getMultiMedia(graphId);
    }
    public List<MultiMedia> getAllMultiMedia(){
-	   return (List<MultiMedia>) multimediaRepository.findAll();
+	  return multiMediaService.getAllMultiMedia();
    }
 //   public Comments getComments(Long graphId) {
 //	   return commentsRepository.findOne(graphId);

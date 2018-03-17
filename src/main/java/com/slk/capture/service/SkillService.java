@@ -6,8 +6,10 @@ import com.slk.capture.model.Skill;
 
 public interface SkillService {
 
-	public void addSkill(Skill skill);
+	public Skill addSkill(String skillName, String skillDescription, String skillType);
 
-	public List<Skill> getSkills();
+	public Skill getSkill(Long graphId);
+	
+	public List<Skill> getAllSkill();
 
 }

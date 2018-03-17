@@ -74,5 +74,25 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setProfile(userProfile);
 		userRepository.save(user);
 	}
+	
+	
+	public User addUser(String userName,String email,String password) {
+	 User user = new User();
+   	 user.setUserName(userName);
+   	 user.setEmail(email);
+   	 user.setPassword(password);
+   	 return userRepository.save(user);	
+	}
+
+	@Override
+	public User getUser(Long graphID) {
+		return userRepository.findOne(graphID);  
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return (List<User>) userRepository.findAll();
+	}
+	
 
 }

@@ -22,7 +22,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/createProfile", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void createProfile(@RequestBody Profile profile) {
-		profileService.createProfile(profile);
+		//profileService.createProfile(profile);
 
 	}
 
