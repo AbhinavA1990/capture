@@ -22,9 +22,6 @@ public class BlogT extends PostType {
 	@Property(name = "blogText")
 	private String blogText;
 
-	@Relationship(type = "BLOGMULTIMEDIA", direction = Relationship.OUTGOING)
-	private List<MultiMedia> multiMediaList;
-
 	@Relationship(type = "BLOGTAGS", direction = Relationship.OUTGOING)
 	private List<BlogTag> blogTags;
 
@@ -50,14 +47,6 @@ public class BlogT extends PostType {
 
 	public void setBlogText(String blogText) {
 		this.blogText = blogText;
-	}
-
-	public List<MultiMedia> getMultiMediaList() {
-		return multiMediaList;
-	}
-
-	public void setMultiMediaList(List<MultiMedia> multiMediaList) {
-		this.multiMediaList = multiMediaList;
 	}
 
 	public List<BlogTag> getBlogTags() {

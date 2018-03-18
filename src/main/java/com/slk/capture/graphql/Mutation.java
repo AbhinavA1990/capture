@@ -9,7 +9,6 @@ import com.slk.capture.model.BlogT;
 import com.slk.capture.model.CarPool;
 import com.slk.capture.model.Contact;
 import com.slk.capture.model.CustomerBU;
-import com.slk.capture.model.MultiMedia;
 import com.slk.capture.model.Profile;
 import com.slk.capture.model.Role;
 import com.slk.capture.model.Skill;
@@ -20,7 +19,6 @@ import com.slk.capture.service.BlogTService;
 import com.slk.capture.service.CarPoolService;
 import com.slk.capture.service.ContactService;
 import com.slk.capture.service.CustomerBUService;
-import com.slk.capture.service.MultiMediaService;
 import com.slk.capture.service.ProfileService;
 import com.slk.capture.service.RoleService;
 import com.slk.capture.service.SkillService;
@@ -59,9 +57,6 @@ public class Mutation implements GraphQLMutationResolver {
 	@Autowired
 	private BlogTService blogTService;
 	
-	@Autowired
-	private MultiMediaService multiMediaService;
-
 	public Skill writeSkill(String skillName, String skillDescription, String skillType) {
 		return skillService.addSkill(skillName, skillDescription, skillType);
 	}
@@ -107,9 +102,5 @@ public class Mutation implements GraphQLMutationResolver {
 	  return blogTService.addBlog(blogTitle, blogText);
 	
   }  
-  public MultiMedia writeMultiMedia(String contentType,String fileName) {
-	 return multiMediaService.addMutliMedia(contentType, fileName);
-  }
-
 
 }

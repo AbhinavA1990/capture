@@ -22,9 +22,6 @@ type Query {
     carPool(graphId:Long):CarPool
     allBlogT:[BlogT]
     blogT(graphId:Long):BlogT
-    allMultiMedia:[MultiMedia]
-    multiMedia(graphId:Long):MultiMedia
-    
 }
 
 type BlogT {
@@ -84,11 +81,6 @@ seatsAvailable:Int
 interestedProfiles:[Profile]
 }
 
-type MultiMedia{
-graphId: ID!
-contentType:String
-fileName:String
-}
 type Comments{
 graphId: ID!
 comment:String
@@ -106,6 +98,5 @@ type Mutation {
     writeAdvertisement(productName:String,productDescription:String,productPrice:Float):Advertisement! 
     writeCarPool(destinationTo:String,startFrom:String,vehicleNumber:String,seatsAvailable:Int):CarPool!
     writeBlogT(blogTitle:String,blogText:String):BlogT!
-    writeMultiMedia(contentType:String,fileName:String):MultiMedia!
    
 }

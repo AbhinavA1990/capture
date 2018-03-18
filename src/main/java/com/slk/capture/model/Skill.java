@@ -12,6 +12,9 @@ public class Skill {
 
 	@GraphId
 	private Long graphId;
+	
+	@Property(name = "uuid")
+	private String uuid;
 
 	@Property(name = "skillId")
 	private String skillId;
@@ -72,4 +75,19 @@ public class Skill {
 		this.skillId = skillId;
 	}
 
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public List<Profile> getProfile() {
+		return profile;
+	}
+
+	public void setProfile(List<Profile> profile) {
+		this.profile = profile;
+	}
 }

@@ -9,45 +9,22 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.slk.capture.model.Advertisement;
 import com.slk.capture.model.BlogT;
 import com.slk.capture.model.CarPool;
-import com.slk.capture.model.Comments;
 import com.slk.capture.model.Contact;
 import com.slk.capture.model.CustomerBU;
-import com.slk.capture.model.MultiMedia;
 import com.slk.capture.model.Profile;
 import com.slk.capture.model.Role;
 import com.slk.capture.model.Skill;
 import com.slk.capture.model.User;
-import com.slk.capture.repo.AdvertisementRepository;
-import com.slk.capture.repo.BlogRepsository;
-import com.slk.capture.repo.CarPoolRepository;
 import com.slk.capture.repo.CommentsRepository;
-import com.slk.capture.repo.ContactRepository;
-import com.slk.capture.repo.CustomerBURepository;
-import com.slk.capture.repo.MultiMediaRepository;
-import com.slk.capture.repo.ProfileRepository;
-import com.slk.capture.repo.RoleRepository;
-import com.slk.capture.repo.SkillRepository;
-import com.slk.capture.repo.UserRepository;
 import com.slk.capture.service.AdvertisementService;
-import com.slk.capture.service.AdvertisementServiceImpl;
 import com.slk.capture.service.BlogTService;
-import com.slk.capture.service.BlogTServiceImpl;
 import com.slk.capture.service.CarPoolService;
-import com.slk.capture.service.CarPoolServiceImpl;
 import com.slk.capture.service.ContactService;
-import com.slk.capture.service.ContactServiceImpl;
 import com.slk.capture.service.CustomerBUService;
-import com.slk.capture.service.CustomerBUServiceImpl;
-import com.slk.capture.service.MultiMediaService;
-import com.slk.capture.service.MultiMediaServiceImpl;
 import com.slk.capture.service.ProfileService;
-import com.slk.capture.service.ProfileServiceImpl;
 import com.slk.capture.service.RoleService;
-import com.slk.capture.service.RoleServiceImpl;
 import com.slk.capture.service.SkillService;
-import com.slk.capture.service.SkillServiceImpl;
 import com.slk.capture.service.UserService;
-import com.slk.capture.service.UserServiceImpl;
 
 @Component
 public class Query implements GraphQLQueryResolver {
@@ -82,9 +59,6 @@ public class Query implements GraphQLQueryResolver {
 	@Autowired
 	private BlogTService blogTService;
 	
-	@Autowired
-	private MultiMediaService multiMediaService;
-
 
 	public Skill getSkill(Long graphId) {
 		return skillService.getSkill(graphId);
@@ -147,12 +121,6 @@ public class Query implements GraphQLQueryResolver {
    
    public List<BlogT> getAllBlogT(){
 	  return blogTService.getAllBlogT();
-   }
-   public MultiMedia getMultiMedia(Long graphId) {
-	  return multiMediaService.getMultiMedia(graphId);
-   }
-   public List<MultiMedia> getAllMultiMedia(){
-	  return multiMediaService.getAllMultiMedia();
    }
 //   public Comments getComments(Long graphId) {
 //	   return commentsRepository.findOne(graphId);
